@@ -50,12 +50,12 @@ options(future.globals.maxSize = 200 * 1024^3)  # 200 GiB
 
 ################### raw data processing
 # Load the PBMC dataset
-mat <- readMM("C:/Users/TSH/Desktop/SLE scRNA seq raw data/matrix.mtx")
-barcodes <- readLines("C:/Users/TSH/Desktop/SLE scRNA seq raw data/barcodes.tsv")
-features <- read.delim("C:/Users/TSH/Desktop/SLE scRNA seq raw data/features.tsv", header = FALSE)
+mat <- readMM("file name of matrix")
+barcodes <- readLines("file name of barcode")
+features <- read.delim("file name of feature", header = FALSE)
 rownames(mat) <- features$V1
 colnames(mat) <- barcodes
-gene_map <- read.csv("C:/Users/TSH/Desktop/SLE scRNA seq raw data/Gene_Symbol_ID_Convert.csv")
+gene_map <- read.csv("file name of symbol and ID conveter")
 gene_ids <- rownames(mat)
 matched_symbols <- gene_map$symbol[match(gene_ids, gene_map$ensembl)]
 sum(!is.na(matched_symbols))
